@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle2, Clock, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const projects = [
   {
@@ -37,6 +38,7 @@ const projects = [
       "Optimized MongoDB schema",
     ],
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "REST API"],
+    link: "https://your-live-bus-booking-link.com", // 👈 add your live link
   },
 ]
 
@@ -89,14 +91,17 @@ export function ProjectsSection() {
                 <h3 className="mb-3 text-xl font-bold text-foreground md:text-2xl">
                   {project.title}
                 </h3>
+
                 <p className="mb-6 leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
 
-                <ul className={cn(
-                  "mb-6 grid gap-2",
-                  project.featured ? "md:grid-cols-2" : "grid-cols-1"
-                )}>
+                <ul
+                  className={cn(
+                    "mb-6 grid gap-2",
+                    project.featured ? "md:grid-cols-2" : "grid-cols-1"
+                  )}
+                >
                   {project.highlights.map((item) => (
                     <li
                       key={item}
@@ -120,10 +125,19 @@ export function ProjectsSection() {
                       </Badge>
                     ))}
                   </div>
-                  <Button variant="ghost" size="sm" className="gap-2">
-                    <ExternalLink className="h-4 w-4" />
-                    View Project
-                  </Button>
+
+                  {project.link && (
+                    <Link
+                      href={"https://busgo.vercel.app/"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant="ghost" size="sm" className="gap-2">
+                        <ExternalLink className="h-4 w-4" />
+                        View Project
+                      </Button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
