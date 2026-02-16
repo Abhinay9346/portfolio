@@ -23,6 +23,7 @@ const projects = [
       "Supports 1000+ certificates per batch",
     ],
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
+    link: "https://certfloww.vercel.app/", // ✅ added live link
   },
   {
     title: "Online Bus Ticket Booking System",
@@ -38,7 +39,7 @@ const projects = [
       "Optimized MongoDB schema",
     ],
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "REST API"],
-    link: "https://your-live-bus-booking-link.com", // 👈 add your live link
+    link: "https://busgo.vercel.app",
   },
 ]
 
@@ -128,7 +129,7 @@ export function ProjectsSection() {
 
                   {project.link && (
                     <Link
-                      href={"https://busgo.vercel.app/"}
+                      href={project.link} // ✅ now uses project link
                       target="_blank"
                       rel="noopener noreferrer"
                     >
